@@ -11,14 +11,14 @@ class OrderToXml extends Command
      *
      * @var string
      */
-    protected $signature = 'command:name';
+    protected $signature = 'command:order-to-xml';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Export an order to xml';
 
     /**
      * Create a new command instance.
