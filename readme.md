@@ -24,8 +24,10 @@ No web side, just CLI.
 It should be able to execute the commands seperately, or all of them at once.
 
 ## Usage
-1. Clone the project
-2. Run ```composer install```
+Built on Laravel 6.0
+
+1. Clone the project.
+2. Run ```composer install```. No further config needed.
 3. Execute following CLI commands:
 - ```php artisan command:order-to-csv```
 - ```php artisan command:order-to-xml```
