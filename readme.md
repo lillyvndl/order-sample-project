@@ -17,7 +17,7 @@ Once an order has been handled, we use following services to process the data:
 Depending on the total budget, the customer will be added to following list:
 - standard (< € 50 excl. vat)
 - silver (< € 250 excl. vat)
-- gold (> € 2000 excl. vat)
+- gold (< € 2000 excl. vat)
 
 ## Additional info
 No web side, just CLI.
