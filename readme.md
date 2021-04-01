@@ -30,3 +30,4 @@ It should be able to execute the commands seperately, or all of them at once.
 - ```php artisan command:order-to-csv```
 - ```php artisan command:order-to-xml```
 - ```php artisan command:subscribe-to-mailchimp```
+- ```php artisan command:process-order```
