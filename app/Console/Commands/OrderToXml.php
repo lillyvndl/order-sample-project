@@ -65,7 +65,7 @@ class OrderToXml extends Command
 
             $this->info($result);
         } catch (DOMException $e) {
-            $this->error("Invalid Character Error!");
+            $this->error('Invalid Character Error!');
         }
 
     }
