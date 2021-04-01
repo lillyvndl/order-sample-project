@@ -65,6 +65,58 @@ class OrderToCsv extends Command
         $csv = Writer::createFromFileObject(new SplTempFileObject());
         $csv->setDelimiter(';');
 
+        /**
+         * Insert the order data
+         */
+        $csv->insertOne([
+            $this->order->get('id'),
+            $this->order->get('number'),
+            $this->order->get('created_via'),
+            $this->order->get('status'),
+            $this->order->get('currency'),
+            $this->order->get('date_created'),
+        ]);
+
+        /**
+         * Insert the price data
+         */
+        $csv->insertOne([
+            $this->order->get('total'),
+            $this->order->get('total_tax'),
+            $this->order->get('discount_total'),
+            $this->order->get('discount_tax'),
+            $this->order->get('shipping_total'),
+            $this->order->get('shipping_tax'),
+        ]);
+
+        /**
+         * Insert the customer data
+         */
+        $csv->insertOne([
+            $this->order->get('billing')['first_name'],
+            $this->order->get('billing')['last_name'],
+            $this->order->get('billing')['address_1'],
+            $this->order->get('billing')['city'],
+            $this->order->get('billing')['postcode'],
+            $this->order->get('billing')['country'],
+            $this->order->get('billing')['email'],
+        ]);
+
+        /**
+         * Insert the order lines data
+         */
+        foreach ($this->order->get('line_items') as $lineItem) {
+            $csv->insertOne([
+                $lineItem['id'],
+                $lineItem['name'],
+                $lineItem['product_id'] . '-' . $lineItem['variation_id'],
+                $lineItem['price'],
+                $lineItem['quantity'],
+                $lineItem['total'],
+                $lineItem['total_tax'],
+            ]);
+        }
+
         $csv->output($name . '.csv');
     }
 }
