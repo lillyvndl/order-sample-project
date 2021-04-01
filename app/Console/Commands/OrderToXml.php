@@ -53,6 +53,6 @@ class OrderToXml extends Command
     {
         $result = ArrayToXml::convert($this->order->toArray(), 'order');
 
-        echo $result;
+        $this->info($result);
     }
 }
