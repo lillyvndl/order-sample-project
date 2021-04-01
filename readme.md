@@ -22,3 +22,11 @@ Depending on the total budget, the customer will be added to following list:
 ## Additional info
 No web side, just CLI.
 It should be able to execute the commands seperately, or all of them at once.
+
+## Usage
+1. Clone the project
+2. Run ```composer install```
+3. Execute following CLI commands:
+- ```php artisan command:order-to-csv```
+- ```php artisan command:order-to-xml```
+- ```php artisan command:subscribe-to-mailchimp```
