@@ -37,6 +37,8 @@ class ProcessOrder extends Command
      */
     public function handle()
     {
-        //
+        $this->call('command:order-to-csv');
+        $this->call('command:order-to-xml');
+        $this->call('command:subscribe-to-mailchimp');
     }
 }
