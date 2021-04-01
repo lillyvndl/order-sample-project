@@ -65,6 +65,6 @@ class OrderToCsv extends Command
         $csv = Writer::createFromFileObject(new SplTempFileObject());
         $csv->setDelimiter(';');
 
-        $csv->output($tableName . '.csv');
+        $csv->output($name . '.csv');
     }
 }
