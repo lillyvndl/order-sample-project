@@ -11,14 +11,14 @@ class ProcessOrder extends Command
      *
      * @var string
      */
-    protected $signature = 'command:name';
+    protected $signature = 'command:process-order';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Handle all commands at once';
 
     /**
      * Create a new command instance.
