@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
+use Illuminate\Support\Collection;
 
 class OrderToXml extends Command
 {
@@ -21,6 +22,11 @@ class OrderToXml extends Command
     protected $description = 'Export an order to xml';
 
     /**
+     * $var Collection
+     */
+    private $order;
+
+    /**
      * Create a new command instance.
      *
      * @return void
@@ -28,6 +34,13 @@ class OrderToXml extends Command
     public function __construct()
     {
         parent::__construct();
+
+        $this->order = new Collection(
+            json_decode(
+                \App::call('App\Http\Controllers\OrderController@get'),
+                true
+            )
+        );
     }
 
     /**
