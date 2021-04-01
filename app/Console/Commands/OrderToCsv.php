@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
+use Illuminate\Support\Collection;
 use League\Csv\Writer;
 use SplTempFileObject;
 
@@ -23,6 +24,11 @@ class OrderToCsv extends Command
     protected $description = 'Export an order to csv';
 
     /**
+     * $var Collection
+     */
+    private $order;
+
+    /**
      * Create a new command instance.
      *
      * @return void
@@ -30,6 +36,13 @@ class OrderToCsv extends Command
     public function __construct()
     {
         parent::__construct();
+
+        $this->order = new Collection(
+            json_decode(
+                \App::call('App\Http\Controllers\OrderController@get'),
+                true
+            )
+        );
     }
 
     /**
