@@ -11,14 +11,14 @@ class OrderToCsv extends Command
      *
      * @var string
      */
-    protected $signature = 'command:name';
+    protected $signature = 'command:order-to-csv';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Export an order to csv';
 
     /**
      * Create a new command instance.
