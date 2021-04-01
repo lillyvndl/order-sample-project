@@ -51,7 +51,7 @@ class OrderToXml extends Command
      */
     public function handle()
     {
-        $result = ArrayToXml::convert($this->order->toArray());
+        $result = ArrayToXml::convert($this->order->toArray(), 'order');
 
         echo $result;
     }
