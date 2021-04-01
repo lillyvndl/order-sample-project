@@ -3,6 +3,8 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
+use League\Csv\Writer;
+use SplTempFileObject;
 
 class OrderToCsv extends Command
 {
@@ -38,5 +40,18 @@ class OrderToCsv extends Command
     public function handle()
     {
         //
+    }
+
+    /**
+     * Generate a CSV
+     *
+     * @param string $name
+     */
+    private function createCsv($name)
+    {
+        $csv = Writer::createFromFileObject(new SplTempFileObject());
+        $csv->setDelimiter(';');
+
+        $csv->output($tableName . '.csv');
     }
 }
