@@ -52,7 +52,7 @@ class OrderToCsv extends Command
      */
     public function handle()
     {
-        //
+        $this->createCsv('order');
     }
 
     /**
