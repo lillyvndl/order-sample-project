@@ -50,6 +50,12 @@ class SubscribeToMailchimp extends Command
      */
     public function handle()
     {
+        if ($this->order->isEmpty()) {
+            $this->error('Order is empty!');
+
+            return 0;
+        }
+
         $budget = $this->order->get('total');
         $customer = $this->order->get('billing');
 

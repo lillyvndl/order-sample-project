@@ -50,8 +50,14 @@ class OrderToCsv extends Command
      *
      * @return mixed
      */
-    public function handle()
+    public function handle(Collection $order)
     {
+        if ($this->order->isEmpty()) {
+            $this->error('Order is empty!');
+
+            return 0;
+        }
+
         $this->createCsv('order');
     }
 

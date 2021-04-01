@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use DOMException;
 use Illuminate\Console\Command;
 use Illuminate\Support\Collection;
 use Spatie\ArrayToXml\ArrayToXml;
@@ -51,8 +52,19 @@ class OrderToXml extends Command
      */
     public function handle()
     {
-        $result = ArrayToXml::convert($this->order->toArray(), 'order');
+        if ($this->order->isEmpty()) {
+            $this->error('Order is empty!');
 
-        $this->info($result);
+            return 0;
+        }
+
+        try {
+            $result = ArrayToXml::convert($this->order->toArray(), 'order');
+
+            $this->info($result);
+        } catch (DOMException $e) {
+            $this->error("Invalid Character Error!");
+        }
+
     }
 }
