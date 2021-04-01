@@ -50,6 +50,21 @@ class SubscribeToMailchimp extends Command
      */
     public function handle()
     {
-        //
+        $budget = $this->order->get('total');
+        $customer = $this->order->get('billing');
+
+        switch ($budget) {
+            case ($budget < 50):
+                $this->info("Add customer '" . $customer['first_name'] . " " . $customer['last_name'] . "' to Standard list");
+                break;
+            case ($budget < 250):
+                $this->info("Add customer '" . $customer['first_name'] . " " . $customer['last_name'] . "' to Silver list");
+                break;
+            case ($budget < 2000):
+                $this->info("Add customer '" . $customer['first_name'] . " " . $customer['last_name'] . "' to Gold list");
+                break;
+            default:
+                $this->info("Add customer '" . $customer['first_name'] . " " . $customer['last_name'] . "' to default list");
+        }
     }
 }
