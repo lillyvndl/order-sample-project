@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Collection;
+use Spatie\ArrayToXml\ArrayToXml;
 
 class OrderToXml extends Command
 {
@@ -50,6 +51,8 @@ class OrderToXml extends Command
      */
     public function handle()
     {
-        //
+        $result = ArrayToXml::convert($this->order->toArray());
+
+        echo $result;
     }
 }

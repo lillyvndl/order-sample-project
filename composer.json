@@ -12,7 +12,8 @@
         "fideloper/proxy": "^4.0",
         "laravel/framework": "^6.0",
         "laravel/tinker": "^1.0",
-        "league/csv": "^9.7"
+        "league/csv": "^9.7",
+        "spatie/array-to-xml": "^2.16"
     },
     "require-dev": {
         "filp/whoops": "^2.0",
