@@ -11,14 +11,14 @@ class SubscribeToMailchimp extends Command
      *
      * @var string
      */
-    protected $signature = 'command:name';
+    protected $signature = 'command:subscribe-to-mailchimp';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Create Mailchimp contact from customers orders. Add clients to list based on order amount.';
 
     /**
      * Create a new command instance.
